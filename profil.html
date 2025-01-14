@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Kami - Kita Berdua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f692328cd0.js" crossorigin="anonymous"></script>
+    <link href="input.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <header class="bg-white p-4 shadow-md rounded-lg mb-4 container mx-auto">
+        <nav class="flex justify-between items-center">
+            <div>
+                <a href="index.html" class="text-xl font-bold text-blue-600">Kita Berdua</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto p-4 flex-grow flex">
+        <button class="toggle-btn">Menu</button>
+        <aside class="w-64 bg-gray-200 p-4 rounded-lg shadow-md sidebar">
+            <nav>
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500 font-medium">
+                    <i class="fas fa-home mr-2"></i> Beranda
+                </a>
+                <div class="submenu-wrapper">
+                    <a href="#" class="block py-2 text-gray-700 hover:text-green-500 font-medium submenu-toggle">
+                        <i class="fas fa-coins mr-2"></i> Keuangan <i class="fas fa-caret-down ml-auto"></i>
+                    </a>
+                    <div class="submenu">
+                        <a href="tabungan_bersama.html" class="block py-2 pl-8 text-gray-600 hover:text-green-600">Tabungan Bersama</a>
+                        <a href="#" class="block py-2 pl-8 text-gray-600 hover:text-green-600">Laporan Keuangan (Segera)</a>
+                    </div>
+                </div>
+                <a href="profil.html" class="block py-2 text-gray-700 hover:text-yellow-500 font-medium active">
+                    <i class="fas fa-user mr-2"></i> Profil
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-grow ml-4 rounded-lg shadow-md bg-white p-8 main-content">
+            <section>
+                <h1 class="text-3xl font-bold mb-4">Profil Kita</h1>
+
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold mb-2">Tentang Kita</h2>
+                    <p>Kita adalah pasangan sama sama egois wokwok tapi kadang saling pengertian dan pastinya ingin mengejar impian bareng.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="profil_satu.html" class="rounded-lg shadow-md overflow-hidden hover:scale-105 transition">
+                        <img src="assets/images/gambar1.png" alt="Foto Pasangan 1" class="w-full h-64 object-cover">
+                        <div class="p-4 bg-gray-100">
+                            <h3 class="font-semibold">Nur - Suka dipanggil Nunu</h3>
+                            <p class="text-sm text-gray-600">Lucu,egois,tantrum,setia</p>
+                        </div>
+                    </a>
+                    <a href="profil_dua.html" class="rounded-lg shadow-md overflow-hidden hover:scale-105 transition">
+                        <img src="assets/images/gambar2.png" alt="Foto Pasangan 2" class="w-full h-64 object-cover">
+                        <div class="p-4 bg-gray-100">
+                            <h3 class="font-semibold">Oki Windu - Winwin azza</h3>
+                            <p class="text-sm text-gray-600">geniuzz, egois, bikin marah Nunu, ambis, setia</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-gray-200 p-4 mt-8 text-center text-gray-600 rounded-lg shadow-md container mx-auto">
+        &copy; 2025 Kita Berdua. Hak Cipta Dilindungi.
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const body = document.querySelector('body');
+        const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            body.classList.toggle('sidebar-open');
+        });
+
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const submenuWrapper = toggle.closest('.submenu-wrapper');
+                submenuWrapper.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

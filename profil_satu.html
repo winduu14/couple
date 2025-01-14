@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pasangan 1 - Kita Berdua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f692328cd0.js" crossorigin="anonymous"></script>
+    <link href="input.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white p-4 shadow-md rounded-lg mb-4 container mx-auto">
+        </header>
+        </header>
+
+    <div class="container mx-auto p-4 flex-grow flex">
+        <button class="toggle-btn">Menu</button>
+        <aside class="w-64 bg-gray-200 p-4 rounded-lg shadow-md sidebar">
+            <nav>
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500 font-medium">
+                    <i class="fas fa-home mr-2"></i> Beranda
+                </a>
+                <div class="submenu-wrapper">
+                    <a href="#" class="block py-2 text-gray-700 hover:text-green-500 font-medium submenu-toggle">
+                        <i class="fas fa-coins mr-2"></i> Keuangan <i class="fas fa-caret-down ml-auto"></i>
+                    </a>
+                    <div class="submenu">
+                        <a href="tabungan_bersama.html" class="block py-2 pl-8 text-gray-600 hover:text-green-600">Tabungan Bersama</a>
+                        <a href="#" class="block py-2 pl-8 text-gray-600 hover:text-green-600">Laporan Keuangan (Segera)</a>
+                    </div>
+                </div>
+                <a href="profil.html" class="block py-2 text-gray-700 hover:text-yellow-500 font-medium active">
+                    <i class="fas fa-user mr-2"></i> Profil
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-grow ml-4 rounded-lg shadow-md bg-white p-8 main-content">
+            <h1>Profil Pasangan 1</h1>
+            <p>Isi detail profil pasangan 1 di sini.</p>
+        </main>
+    </div>
+
+    <footer class="bg-gray-200 p-4 mt-8 text-center text-gray-600 rounded-lg shadow-md container mx-auto">
+        &copy; 2023 Kita Berdua. Hak Cipta Dilindungi.
+    </footer>
+
+    <script>
+         const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const body = document.querySelector('body');
+        const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            body.classList.toggle('sidebar-open');
+        });
+
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const submenuWrapper = toggle.closest('.submenu-wrapper');
+                submenuWrapper.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
