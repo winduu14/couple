@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Kita Berdua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f692328cd0.js" crossorigin="anonymous"></script>
+    <link href="input.css" rel="stylesheet">
+    <style>
+        /* Style untuk animasi hover */
+        .group:hover .group-hover\:scale-105 {
+            transform: scale(1.05); /* Memperbesar gambar saat dihover */
+        }
+        .group:hover .group-hover\:bg-opacity-50 {
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay hitam transparan saat dihover */
+        }
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 1; /* Menampilkan teks "Lihat Detail" saat dihover */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <header class="bg-white p-4 shadow-md rounded-lg mb-4 container mx-auto">
+        <nav class="flex justify-between items-center">
+            <div>
+                <a href="index.html" class="text-xl font-bold text-blue-600">Kita Berdua</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto p-4 flex-grow flex">
+        <button class="toggle-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <aside class="w-64 bg-gray-200 p-4 rounded-lg shadow-md sidebar">
+            <nav>
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500 font-medium">
+                    <i class="fas fa-home mr-2"></i> Beranda
+                </a>
+                <div class="submenu-wrapper">
+                    <a href="#" class="block py-2 text-gray-700 hover:text-green-500 font-medium submenu-toggle">
+                        <i class="fas fa-coins mr-2"></i> Keuangan <i class="fas fa-caret-down ml-auto"></i>
+                    </a>
+                    <div class="submenu">
+                        <a href="tabungan_bersama.html" class="block py-2 pl-8 text-gray-600 hover:text-green-600">Input Tabungan</a>
+                        <a href="realtime_tabungan_bersama.html" class="block py-2 pl-8 text-gray-600 hover:text-green-600">Lihat Tabungan</a>
+                        <a href="#" class="block py-2 pl-8 text-gray-600 hover:text-green-600">Laporan Keuangan (Segera)</a>
+                    </div>
+                </div>
+                <a href="wishlist.html" class="block py-2 text-gray-700 hover:text-purple-500 font-medium active">
+                    <i class="fas fa-heart mr-2"></i> Wishlist
+                </a>
+                <a href="profil.html" class="block py-2 text-gray-700 hover:text-yellow-500 font-medium">
+                    <i class="fas fa-user mr-2"></i> Profil
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-grow ml-0 md:ml-4 rounded-lg shadow-md bg-white p-4 md:p-8 main-content">
+            <section class="container mx-auto p-4 md:p-6">
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Daftar Wishlist</h1>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden relative group cursor-pointer">
+                        <img src="https://asset.kompas.com/crops/Evg9JUVIOzIUI28CotzoQ6kASqc=/0x0:1000x667/750x500/data/photo/2023/02/26/63fb8730a1676.jpg" alt="Nama Tempat 1" class="w-full h-48 object-cover rounded-t-lg transition duration-300 ease-in-out">
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white rounded-lg p-2 text-sm">
+                            <span>Surakarta Series</span>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-gray-600 text-white rounded-lg p-2 text-xs">
+                            <span>Rencana: 2024-12-25</span>
+                        </div>
+                        <a href="halaman_tujuan_1.html" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300">
+                           <span class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">Lihat Detail</span>
+                       </a>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden relative group cursor-pointer">
+                        <img src="https://cdngnfi2.sgp1.digitaloceanspaces.com/gnfi/uploads/articles/large-10-destinasi-wisata-klaten-yang-banyak-dicari-di-tahun-2024-EcT1N3gOoi.jpg" alt="Nama Tempat 2" class="w-full h-48 object-cover rounded-t-lg transition duration-300 ease-in-out">
+                        <div class="absolute top-4 left-4 bg-red-500 text-white rounded-lg p-2 text-sm">
+                            <span>Klaten Series</span>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-gray-600 text-white rounded-lg p-2 text-xs">
+                            <span>Rencana: 2025-06-10</span>
+                        </div>
+                        <a href="halaman_tujuan_2.html" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300">
+                           <span class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">Lihat Detail</span>
+                       </a>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden relative group cursor-pointer">
+                        <img src="https://imgcdn.espos.id/@espos/images/2023/05/gapura-wonogiri.jpg?quality=60" alt="Nama Tempat 3" class="w-full h-48 object-cover rounded-t-lg transition duration-300 ease-in-out">
+                        <div class="absolute top-4 left-4 bg-yellow-500 text-white rounded-lg p-2 text-sm">
+                            <span>Wonogiri Series</span>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-gray-600 text-white rounded-lg p-2 text-xs">
+                            <span>Rencana: 2024-09-15</span>
+                        </div>
+                        <a href="halaman_tujuan_3.html" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300">
+                           <span class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">Lihat Detail</span>
+                       </a>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden relative group cursor-pointer">
+                        <img src="https://img.okezone.com/content/2022/03/11/549/2559887/yuk-utamakan-keselamatan-saat-kunjungi-tempat-ikonik-yogyakarta-3Gahc14t9O.jpg" alt="Nama Tempat 4" class="w-full h-48 object-cover rounded-t-lg transition duration-300 ease-in-out">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white rounded-lg p-2 text-sm">
+                            <span>Jogjakarta Series</span>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-gray-600 text-white rounded-lg p-2 text-xs">
+                            <span>Rencana: 2024-11-20</span>
+                        </div>
+                        <a href="halaman_tujuan_4.html" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300">
+                           <span class="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">Lihat Detail</span>
+                       </a>
+                    </div>
+
+                </div> </--- Penutup div grid
+
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-gray-200 p-4 mt-8 text-center text-gray-600 rounded-lg shadow-md container mx-auto">
+        &copy; 2023 Kita Berdua. Hak Cipta Dilindungi.
+    </footer>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const body = document.querySelector('body');
+        const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            body.classList.toggle('sidebar-open');
+        });
+
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const submenuWrapper = toggle.closest('.submenu-wrapper');
+                submenuWrapper.classList.toggle('active');
+                toggle.classList.toggle('active');
+                const submenu = submenuWrapper.querySelector('.submenu')
+                submenu.classList.toggle('active')
+            });
+        });
+    </script>
+
+</body>
+</html>
