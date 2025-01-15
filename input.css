@@ -137,7 +137,7 @@
 /* Style untuk responsive iframe (Google Form) */
 .responsive-iframe-container {
     position: relative;
-    padding-bottom: 125%; /* 4:3 aspect ratio (sesuaikan jika perlu) */
+    padding-bottom: 75%; /* 4:3 aspect ratio (sesuaikan jika perlu) */
     height: 0;
     overflow: hidden;
     max-width: 100%;
