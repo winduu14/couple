@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabungan Bersama - Kita Berdua</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/f692328cd0.js" crossorigin="anonymous"></script> <--- Ganti dengan Kit ID Anda!
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <--- SweetAlert2
+    <script src="https://kit.fontawesome.com/f692328cd0.js" crossorigin="anonymous"></script> <--- Ganti dengan Kit ID Font Awesome Anda!
     <link href="input.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
@@ -51,23 +50,9 @@
                 <div class="max-w-xl mx-auto bg-gray-100 rounded-lg shadow-md p-8">
                     <h2 class="text-2xl font-semibold mb-4 text-left">Input Transaksi</h2>
 
-                    <form id="formTabungan" action="https://script.google.com/macros/s/AKfycbzL_FjG3VarfOjQSz2rjowZknCY8t1V7zFpQhCDnZIbAoiwPS-H_xzNnQtTrU09UL__WQ/exec" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="md:col-span-1">
-                            <label for="tanggal" class="block text-gray-700 font-medium">Tanggal</label>
-                            <input type="date" id="tanggal" name="tanggal" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div class="md:col-span-1">
-                            <label for="deskripsi" class="block text-gray-700 font-medium">Deskripsi</label>
-                            <input type="text" id="deskripsi" name="deskripsi" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div class="md:col-span-1">
-                            <label for="jumlah" class="block text-gray-700 font-medium">Jumlah (Rp)</label>
-                            <input type="number" id="jumlah" name="jumlah" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div class="md:col-span-3 mt-4">
-                            <button type="submit" class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">Simpan</button>
-                        </div>
-                    </form>
+                    <div class="responsive-iframe-container">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScsQDJUUEhwtHrKC_ZU6fxVKpzcpWPDqXySEmBVpTieoYRmVQ/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+                    </div>
 
                 </div>
             </section>
@@ -83,7 +68,6 @@
         const sidebar = document.querySelector('.sidebar');
         const body = document.querySelector('body');
         const submenuToggles = document.querySelectorAll('.submenu-toggle');
-        const formTabungan = document.getElementById('formTabungan');
 
         toggleBtn.addEventListener('click', () => {
             sidebar.classList.toggle('active');
@@ -96,49 +80,6 @@
                 const submenuWrapper = toggle.closest('.submenu-wrapper');
                 submenuWrapper.classList.toggle('active');
                 toggle.classList.toggle('active');
-            });
-        });
-
-        formTabungan.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const tanggalInput = document.getElementById('tanggal');
-            const tanggalValue = new Date(tanggalInput.value);
-            const tanggalFormatted = tanggalValue.toLocaleDateString('id-ID', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
-
-            document.getElementById('tanggal').value = tanggalFormatted;
-
-            fetch(formTabungan.action, {
-                method: formTabungan.method,
-                body: new URLSearchParams(new FormData(formTabungan))
-            })
-            .then(response => {
-                if (!response.ok) {
-                    return response.text().then(text => { throw new Error(text) });
-                }
-                return response.text();
-            })
-            .then(data => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil!',
-                    text: data,
-                    confirmButtonText: 'OK'
-                });
-                formTabungan.reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal!',
-                    text: 'Terjadi kesalahan: ' + error,
-                    confirmButtonText: 'OK'
-                });
             });
         });
     </script>
