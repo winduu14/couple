@@ -10,7 +10,10 @@
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
     z-index: 10;
-    height: 100%; /* Sidebar mengisi tinggi container */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .sidebar nav {
@@ -23,7 +26,7 @@
     padding: 0.75rem 1.5rem;
     color: #333;
     transition: all 0.3s ease;
-    border-left: 3px solid transparent; /* Garis di kiri untuk efek active */
+    border-left: 3px solid transparent;
 }
 
 .sidebar nav a:hover {
@@ -49,7 +52,7 @@
     background-color: #e9f0f7;
     color: #0056b3;
     font-weight: 600;
-    border-left-color: #007bff; /* Warna garis kiri saat active */
+    border-left-color: #007bff;
 }
 
 /* Style untuk submenu */
@@ -58,12 +61,12 @@
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
     max-height: 0;
-    background-color: #f8f8f8; /* Warna latar belakang submenu */
+    background-color: #f8f8f8;
 }
 
 .submenu-wrapper.active .submenu {
     display: block;
-    max-height: 500px; /* Sesuaikan tinggi maksimum jika perlu */
+    max-height: 500px;
 }
 
 .submenu-toggle {
@@ -72,22 +75,27 @@
     cursor: pointer;
 }
 
-.submenu-toggle .fa-caret-down {
-    transition: transform 0.3s ease;
+.submenu-toggle i.fa-caret-down {
+    transition: transform 0.3s ease-in-out;
 }
 
-.submenu-toggle.active .fa-caret-down {
+.submenu-wrapper.active .submenu-toggle i.fa-caret-down {
     transform: rotate(180deg);
 }
 
-/* Style untuk tombol toggle (mobile) */
+/* Style untuk toggle button (ikon hamburger) */
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #333;
+}
+
 .toggle-btn {
     display: none;
     position: fixed;
     top: 1rem;
     left: 1rem;
     background-color: #fff;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem;
     border-radius: 5px;
     cursor: pointer;
     z-index: 11;
@@ -95,38 +103,51 @@
     transition: transform 0.3s ease;
 }
 
-.toggle-btn:hover {
-    transform: scale(1.1);
-}
-
-/* Responsif (mobile) */
+/* Media Query untuk responsive sidebar */
 @media (max-width: 768px) {
-    .flex {
-        flex-direction: column;
-    }
-    .main-content {
-        margin-left: 0;
-        margin-top: 4rem;
-        padding-top: 2rem;
-    }
     .sidebar {
+        transform: translateX(-100%);
         position: fixed;
         top: 0;
         left: 0;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        transform: translateX(-100%);
-        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
-        background-color: #fff; /* Warna latar belakang putih di mobile */
+        width: 90%; /* Lebar sidebar di ponsel */
+        height: 100%;
+        background-color: white;
+        z-index: 100;
+        overflow-y: auto;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Shadow lebih terlihat di mobile */
     }
     .sidebar.active {
         transform: translateX(0);
     }
-    .toggle-btn {
-        display: block;
+    .main-content {
+        margin-left: 0 !important;
+        padding-top: 5rem;
+        padding: 1rem;
     }
     body.sidebar-open {
         overflow: hidden;
     }
+    .toggle-btn{
+        display: block;
+        z-index: 101; /* Pastikan toggle button di atas sidebar */
+    }
+}
+
+/* Style untuk responsive iframe (Google Form) */
+.responsive-iframe-container {
+    position: relative;
+    padding-bottom: 75%; /* 4:3 aspect ratio (sesuaikan jika perlu) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
